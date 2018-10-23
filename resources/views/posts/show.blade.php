@@ -32,6 +32,26 @@
                         </ul>
 
                 @endif
+    
+    <h4>Post a Comment</h4>
+
+    <form method = "POST" action = "/posts/{{$post->id}}/comments">
+
+        {{csrf_field()}}
+        
+        <div class="form-group">
+            <label>Author</label>
+            <input name = "author" type="text" class="form-control" placeholder="Enter author">
+            @include('layouts.partials.error-message',['field' => 'author'])
+        </div>
+        <div class="form-group">
+            <label>Comment</label>
+            <textarea name = "comment" type="text" class="form-control" id="title" placeholder="Enter title"></textarea>
+            @include('layouts.partials.error-message',['field' => 'comment'])
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
     
 

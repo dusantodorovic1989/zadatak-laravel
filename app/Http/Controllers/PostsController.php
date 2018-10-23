@@ -30,11 +30,7 @@ class PostsController extends Controller
     {// VAALIDACIJA, ne gadja bazu
         $this->validate(
             request(),
-            [
-                'title'=>'required',
-                'body'=>'required|min:25',
-                'published'=>'required'
-            ]
+           Post::VALIDATION_RULES
             );
         Post::create(request()->all());
 

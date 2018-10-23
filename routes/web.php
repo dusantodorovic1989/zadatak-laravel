@@ -11,19 +11,15 @@
 |
 */
 
-
+Route::get('/', 'PostsController@index');
 
 Route::prefix('posts')->group(function (){
 
     Route::get('/create','PostsController@create');
     Route::post('/','PostsController@store');
     Route::get('/{id}', 'PostsController@show');
-
-    
-
     Route::get('/', 'PostsController@index');
-
+    Route::post('/{id}/comments', 'CommentsController@store');
 
 });
 
-Route::get('/', 'PostsController@index');

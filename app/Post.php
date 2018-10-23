@@ -10,6 +10,14 @@ class Post extends Model
         'title','body','published'
     ];
 
+    const VALIDATION_RULES = [
+        
+            'title'=>'required',
+            'body'=>'required|min:25',
+            'published'=>'required'
+        
+    ];
+
     public static function getPublishedPosts()
     {
         return Post::where('published',true)->get();
