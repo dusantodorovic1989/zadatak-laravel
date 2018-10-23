@@ -19,7 +19,13 @@ Route::prefix('posts')->group(function (){
     Route::post('/','PostsController@store');
     Route::get('/{id}', 'PostsController@show');
     Route::get('/', 'PostsController@index');
-    Route::post('/{id}/comments', 'CommentsController@store');
 
+    Route::prefix('/{postId}/comments')->group(function (){
+
+    
+
+        Route::post('/', 'CommentsController@store');
+        Route::post('/{commentId}', 'CommentsController@destroy');
+});
 });
 
