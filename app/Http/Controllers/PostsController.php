@@ -28,7 +28,15 @@ class PostsController extends Controller
     }
 
     public function store()
-    {
+    {// VAALIDACIJA, ne gadja bazu
+        $this->validate(
+            request(),
+            [
+                'title'=>'required',
+                'body'=>'required|min:25',
+                'published'=>'required'
+            ]
+            );
         Post::create(request()->all());
 
 

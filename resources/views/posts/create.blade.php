@@ -13,10 +13,12 @@
   <div class="form-group">
     <label>Title</label>
     <input name = "title" type="text" class="form-control" id="title" placeholder="Enter title">
+    @include('layouts.partials.error-message',['field' => 'title'])
   </div>
   <div class="form-group">
     <label>Body</label>
     <textarea name = "body" type="text" class="form-control" id="title" placeholder="Enter title"></textarea>
+    @include('layouts.partials.error-message',['field' => 'body'])
   </div>
   <div class="form-check">
     <input name = "published" type="checkbox" checked = 'true' value = '1' class="form-check-input" id="publish">

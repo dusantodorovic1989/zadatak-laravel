@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+<a href = "/posts/create">
+    <button type="submit" class="btn btn-primary">Greate New Post</button>
+</a>
 <h1>Posts</h1>
       
 <ul>
