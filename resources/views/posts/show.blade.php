@@ -18,6 +18,20 @@
                         </a>
                     </h2>
                     <p>{{$post->body}}</p>
+
+                @if(count($post->comments))
+                        <h4>Comments</h4>
+                        <ul class = "list-unstyled">
+                            @foreach($post->comments as $comment)
+                                <li>
+                                    <p><strong>Author:</strong>{{$comment->author}}</p>
+                                    <p> {{$comment->comment}}</p>
+                                </li>
+
+                            @endforeach
+                        </ul>
+
+                @endif
     </div>
     
 
