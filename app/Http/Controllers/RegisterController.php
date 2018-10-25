@@ -18,7 +18,13 @@ class RegisterController extends Controller
             request(),
             User::VALIDATION_RULES
         );
-        $user = User::create(request()->all());
+        $user = new User();
+        $user->name = request('name');
+        $user->email = request('email');
+        $user->password = bcrypt(request('password'));
+        $user->save();/// ovaj deo koda je za cuvanje u bazu
+
+        //$user = User::create(request()->all()); stari nacin kreiranja korisnika i cuvanja u bazu
         auth()->login($user);
 
         return redirect('/posts');
