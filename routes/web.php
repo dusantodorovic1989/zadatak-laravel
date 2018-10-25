@@ -13,6 +13,13 @@
 
 Route::get('/', 'PostsController@index');
 
+
+
+Route::prefix('register')->group(function (){
+    Route::get('/','RegisterController@create');
+    Route::post('/','RegisterController@store');
+});
+
 Route::prefix('posts')->group(function (){
 
     Route::get('/create','PostsController@create');
