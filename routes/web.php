@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PostsController@index');
+Route::get('/logout','LoginController@logout');
 
 
 

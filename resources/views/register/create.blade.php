@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Register user_error
+    Register user
 
 @endsection
 
