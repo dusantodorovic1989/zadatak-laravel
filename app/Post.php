@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use App\Comment;
 class Post extends Model
 {
-    protected $fillable = [
-        'title','body','published'
+    protected $guarded = [
+        'id'
     ];
 
     const VALIDATION_RULES = [
@@ -21,6 +22,11 @@ class Post extends Model
     public static function getPublishedPosts()
     {
         return Post::where('published',true)->get();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'author_id');// dodali smo i naziv da bi povezao sa autorom
     }
 
     public function comments()
