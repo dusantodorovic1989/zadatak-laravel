@@ -24,7 +24,7 @@ class Post extends Model
         return Post::where('published',true)->get();
     }
 
-    public function user()
+    public function author()
     {
         return $this->belongsTo(User::class, 'author_id');// dodali smo i naziv da bi povezao sa autorom
     }
